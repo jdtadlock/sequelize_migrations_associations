@@ -47,8 +47,10 @@ app.post('/shops', (req, res) => {
 });
 
 app.post('/coffee/:shop_id', (req, res) => {
+	// console.log(req.params);
 	Coffee.create({...req.body, shopId: req.params.shop_id})
-		.then(() => res.redirect('/'));
+		.then(() => res.redirect('/'))
+		.catch(err => console.log(err));
 });
 
 app.listen(5000, () => console.log('Listening on port 5000'));

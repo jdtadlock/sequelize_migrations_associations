@@ -1,8 +1,24 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Coffee = sequelize.define('Coffee', {
-    name: DataTypes.STRING,
-    type: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    shopId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {});
   Coffee.associate = function(models) {
     // Coffee belongsTo Shop

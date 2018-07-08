@@ -23,7 +23,11 @@ module.exports = {
         type: Sequelize.DATE
       },
       shopId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'shops',
+          key: 'id'
+        }
       }
     });
   },
